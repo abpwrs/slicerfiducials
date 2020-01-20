@@ -13,9 +13,11 @@ import pandas as pd
 from .enums import Format, Space
 
 HEADER = {}
-HEADER[
-    Format.ORIGINAL_MARKUP
-] = "# Markups fiducial file version = 4.10\n# CoordinateSystem = 0\n# columns = id,x,y,z,ow,ox,oy,oz,vis,sel,lock,label,desc,associatedNodeID\n"
+HEADER[Format.ORIGINAL_MARKUP] = (
+    "# Markups fiducial file version = 4.10\n"
+    "# CoordinateSystem = 0\n"
+    "# columns = id,x,y,z,ow,ox,oy,oz,vis,sel,lock,label,desc,associatedNodeID\n"
+)
 HEADER[Format.ORIGINAL] = "#label,x,y,z,sel,vis\n"
 
 
@@ -28,12 +30,15 @@ class SlicerFiducials(object):
         convertRAStoLPS: bool = True,
     ):
         """
-        constructor for this class. this class can be initialized by either the name(path) of the fcsv file or by
-        a pandas dataframe object. fcsv file is read only when no dataframe has been passed.
+        constructor for this class.
+        this class can be initialized by either the name of the fcsv file or by a pandas
+        dataframe object.
+        fcsv file is read only when no dataframe has been passed.
         :param fcsv_filename: path of the fcsv file
         :param df: pandas dataframe object
         :param image_filename: path to the image
-        :param convertRAStoLPS: whether to convert Right-Anterior-Superior to Left-Posterior-Superior
+        :param convertRAStoLPS: whether to convert
+        Right-Anterior-Superior to Left-Posterior-Superior
         """
 
         # load all params passed in
@@ -126,7 +131,8 @@ class SlicerFiducials(object):
 
     def __iter__(self):
         """
-        :return: an iterable of the form label, point where label is a string and point is the 3D location
+        :return: an iterable of the form label,
+        point where label is a string and point is the 3D location
         """
         return iter(self.fiducialToPhysical.items())
 
@@ -135,7 +141,8 @@ class SlicerFiducials(object):
         """
         :param file1: SlicerFiducials
         :param file2: SlicerFiducials
-        :return: SlicerFiducials object calculating the difference between corresponding fiducials of file1 and file2
+        :return: SlicerFiducials object calculating the difference between
+        corresponding fiducials of file1 and file2
         """
         if file1.names() != file2.names():
             raise ValueError
@@ -235,7 +242,7 @@ class SlicerFiducials(object):
         """
         try:
             assert len(xyz_array) == 3
-        except AssertionError as _:
+        except AssertionError:
             raise Exception("Array length must be 3.")
 
         self.fiducialToPhysical[name] = xyz_array
@@ -250,14 +257,19 @@ class SlicerFiducials(object):
 
     def apply_sitk_transform(self, sitk_transform, inplace=True):
         """
-        applies a simpleitk transform to all of the points in the SlicerFiducials object
-        :param sitk_transform: A SimpleITK transform to apply to all of the points in the fcsv
-        :param xyz_array: optional param to do transform inplace or return a new SlicerFiducials object
+        applies a simpleitk transform to all points in the SlicerFiducials object
+
+        :param sitk_transform: A SimpleITK transform to apply
+        to all of the points in the fcsv
+
+        :param xyz_array: optional param to do transform inplace or
+        return a new SlicerFiducials object
+
         :return: may return a SlicerFiducials object depending on if it is done inplace
         """
         try:
             assert hasattr(sitk_transform, "TransformPoint")
-        except AssertionError as e:
+        except AssertionError:
             raise TypeError("sitk_transform must implement the TransformPoint method.")
         if inplace:
             write_to = self
