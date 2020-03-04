@@ -4,4 +4,4 @@ from .slicerfiducials import SlicerFiducials
 
 __author__ = """Alexander Powers"""
 __email__ = "alexander-powers@uiowa.edu"
-__version__ = "__version__ = '0.1.5'"
+__version__ = '0.1.4'
