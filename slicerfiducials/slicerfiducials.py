@@ -271,6 +271,7 @@ class SlicerFiducials(object):
             assert hasattr(sitk_transform, "TransformPoint")
         except AssertionError:
             raise TypeError("sitk_transform must implement the TransformPoint method.")
+
         if inplace:
             write_to = self
         else:

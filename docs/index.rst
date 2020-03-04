@@ -1,5 +1,5 @@
-Welcome to SlicerFiducials's documentation!
-======================================
+Welcome to SlicerFiducials' documentation!
+============================================
 
 .. toctree::
    :maxdepth: 2
@@ -8,8 +8,8 @@ Welcome to SlicerFiducials's documentation!
    readme
    installation
    usage
-   modules
    contributing
+   modules
    authors
    history
 
