@@ -10,12 +10,7 @@ with open("README.rst") as readme_file:
 with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
-requirements = [
-    'itk',
-    'numpy',
-    'pandas',
-    'simpleitk'
-]
+requirements = ["itk", "numpy", "pandas", "simpleitk"]
 
 setup_requirements = [
     "pytest-runner",
@@ -53,6 +48,6 @@ setup(
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/abpwrs/slicerfiducials",
-    version="version='0.1.1'",
+    version="0.1.1",
     zip_safe=False,
 )
