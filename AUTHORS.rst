@@ -6,6 +6,7 @@ Development Lead
 ----------------
 
 * Alexander Powers <alexander-powers@uiowa.edu>
+* Arjit Jain <thearjitjain@gmail.com>
 
 Contributors
 ------------
