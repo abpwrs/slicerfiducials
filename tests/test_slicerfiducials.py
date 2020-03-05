@@ -3,8 +3,6 @@
 """Tests for `slicerfiducials` package."""
 
 import pytest
-
-
 from slicerfiducials import slicerfiducials
 
 
