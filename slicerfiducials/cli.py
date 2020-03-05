@@ -27,17 +27,13 @@ def cli_transform(args):
     fiducials.apply_sitk_transform(transform, inplace=True)
 
     output_dir = os.path.join(
-        os.path.abspath(args.output_dir),
-        get_transform_name(transform),
+        os.path.abspath(args.output_dir), get_transform_name(transform),
     )
 
     if not os.path.isdir(output_dir):
         os.makedirs(output_dir)
 
-    output_filename = os.path.join(
-        output_dir,
-        os.path.split(args.fcsv)[-1],
-    )
+    output_filename = os.path.join(output_dir, os.path.split(args.fcsv)[-1],)
 
     fiducials.write(output_filename)
 
