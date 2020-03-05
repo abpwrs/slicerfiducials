@@ -1,4 +1,4 @@
-Welcome to SlicerFiducials' documentation!
+Welcome to SlicerFiducials documentation!
 ============================================
 
 .. toctree::
