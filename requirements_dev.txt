@@ -8,7 +8,7 @@ coverage==4.5.4
 Sphinx==1.8.5
 twine==1.14.0
 itk==5.0.1
-numpy==1.17.4
+numpy==1.22.0
 pandas==0.25.3
 
 pytest==4.6.5
